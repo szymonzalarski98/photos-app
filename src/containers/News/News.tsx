@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import { Container } from "./styles";
 import { Card, Loading } from "../../components";
-import { getNews, IGetNews } from "../../api/getNews";
+import { getNews, INews as INewsProps } from "../../api/getNews";
 
 interface INews {
   navigation: {
@@ -11,7 +11,7 @@ interface INews {
 }
 
 export const News: FunctionComponent<INews> = ({ navigation }): JSX.Element => {
-  const [data, setData] = useState<IGetNews[]>([]);
+  const [data, setData] = useState<INewsProps[]>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const getNewsData = async () => {
     await getNews()
@@ -21,8 +21,8 @@ export const News: FunctionComponent<INews> = ({ navigation }): JSX.Element => {
       });
   };
   const redirectToDetails = (id: number, title: string, description: string) => navigation.navigate("NewsDetails", { id, title, description })
-  const renderItem = ({ item }: { item: IGetNews }) => <Card id={item.id} title={item.title} description={item.body} redirectToDetails={redirectToDetails} />;
-  const keyExtractor = (item: IGetNews) => item.id.toString();
+  const renderItem = ({ item }: { item: INewsProps }) => <Card id={item.id} title={item.title} description={item.body} redirectToDetails={redirectToDetails} />;
+  const keyExtractor = (item: INewsProps) => item.id.toString();
   useEffect(() => {
     getNewsData();
   }, []);

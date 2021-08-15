@@ -5,7 +5,7 @@ import { Input } from "../../components"
 import { Button } from "../Button";
 import { Comment } from "../../components";
 import { Loading } from "../Loading";
-import { getComments, IGetComments } from "../../api";
+import { getComments, IComment } from "../../api";
 
 interface IDetailsCard {
   id: number;
@@ -18,7 +18,7 @@ export const DetailsCard: FunctionComponent<IDetailsCard> = ({ id, title, descri
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
-  const [comments, setComments] = useState<IGetComments[]>([]);
+  const [comments, setComments] = useState<IComment[]>([]);
   const capitalizeFirstLetter = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
   const formattedTitle = capitalizeFirstLetter(title);
   const formattedDescription = capitalizeFirstLetter(description);
@@ -32,7 +32,7 @@ export const DetailsCard: FunctionComponent<IDetailsCard> = ({ id, title, descri
     
   };
   const handleAddcomment = () => {
-    const newComment: IGetComments = {
+    const newComment: IComment = {
       postId: id,
       name: "You",
       body: value,

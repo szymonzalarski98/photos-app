@@ -19,8 +19,9 @@ export interface IText {
   color?: string;
   weight?: TextWeight
   children: React.ReactNode,
+  numberOfLines?: number;
 }
 
-export const Text: FunctionComponent<IText> = ({ size = TextSize.Small, color = "#000000", weight = TextWeight.Normal, children }) => (
-  <StyledText size={size} color={color} weight={weight}>{children}</StyledText>
+export const Text: FunctionComponent<IText> = ({ size = TextSize.Small, color = "#000000", weight = TextWeight.Normal, children, numberOfLines }) => (
+  <StyledText size={size} color={color} weight={weight} ellipsizeMode="tail" {...(numberOfLines && { numberOfLines })}>{children}</StyledText>
 );

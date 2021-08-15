@@ -3,7 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Container, IconContainer } from "./styles";
 
 interface INavigatorArrow {
-  onPress: () => any;
+  onPress: () => void;
 }
 
 export const NavigatorArrow: FunctionComponent<INavigatorArrow> = ({ onPress }) => {
