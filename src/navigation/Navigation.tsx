@@ -5,14 +5,19 @@ import { Albums } from '../containers';
 import { TabBar } from "./TabBar/TabBar";
 import { NewsNavigator } from "./NewsNavigation";
 
+const albumsHeaderOptions = {
+  headerStyle: {
+    height: 88,
+  },
+};
+
 const Tab = createBottomTabNavigator();
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const Navigation = () => (
+export const Navigation = (): JSX.Element => (
   <NavigationContainer>
-    <Tab.Navigator tabBar={TabBar} screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="News" component={NewsNavigator} />
-      <Tab.Screen name="Albums" component={Albums} />
+    <Tab.Navigator tabBar={TabBar}>
+      <Tab.Screen name="News" component={NewsNavigator} options={{ headerShown: false }} />
+      <Tab.Screen name="Albums" component={Albums} options={albumsHeaderOptions} />
     </Tab.Navigator>
   </NavigationContainer>
 );

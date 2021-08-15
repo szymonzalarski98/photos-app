@@ -17,7 +17,7 @@ const screenOptions: StackNavigationOptions = {
 
 const newsDetailsOption: StackNavigationOptions = {
   ...screenOptions,
-  headerTitle: "News Details",
+  headerTitle: "News details",
   // eslint-disable-next-line react/display-name
   headerLeft: ({ onPress }: any) => <NavigatorArrow onPress={onPress} />
 };
