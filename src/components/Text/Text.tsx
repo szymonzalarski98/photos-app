@@ -6,12 +6,13 @@ export enum TextSize {
   Small = 14,
   Medium = 16,
   Large = 22,
-};
+}
 
 export enum TextWeight {
+  Thin = "500",
   Normal = "600",
   Bold = "700",
-};
+}
 
 export interface IText {
   size?: TextSize;
