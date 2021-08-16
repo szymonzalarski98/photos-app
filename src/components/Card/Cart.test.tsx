@@ -1,22 +1,25 @@
 import React from "react";
-import { render } from "@testing-library/react-native";
+import { render, fireEvent } from "@testing-library/react-native";
 import { Card } from "./Card";
 
+jest.mock("../CardArrowIcon", () => ({
+  "CardArrowIcon": "CardArrowIcon",
+}));
+
 describe("Test Card", () => {
+  const mockRedirectToDetails = jest.fn();
   const mockProps = {
     id: 1,
     title: "title",
-    description: "description"
+    description: "description",
+    redirectToDetails: mockRedirectToDetails,
   }
-  jest.mock("../CardArrowIcon", () => ({
-    "CardArrowIcon": "CardArrowIcon",
-  }));
 
   it("Should redner correct title and description", () => {
-    const { getByText } = render(<Card {...mockProps}  />);
-    const component = getByText("Title");
-    expect(component.props.id).toBe("id");
-    expect(component.props.title).toBe("title");
-    expect(component.props.description).toBe("description");
+    const { getByTestId } = render(<Card {...mockProps}  />);
+    expect(getByTestId("card-title")).not.toBeNull();
+    expect(getByTestId("card-desc")).not.toBeNull();
+    fireEvent.press(getByTestId("card-button"));
+    expect(mockRedirectToDetails).toHaveBeenCalledWith(1, "title", "description");
   })
 })

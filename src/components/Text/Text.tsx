@@ -20,8 +20,9 @@ export interface IText {
   weight?: TextWeight
   children: React.ReactNode,
   numberOfLines?: number;
+  testID?: string;
 }
 
-export const Text: FunctionComponent<IText> = ({ size = TextSize.Small, color = "#000000", weight = TextWeight.Normal, children, numberOfLines }) => (
-  <StyledText size={size} color={color} weight={weight} ellipsizeMode="tail" {...(numberOfLines && { numberOfLines })}>{children}</StyledText>
+export const Text: FunctionComponent<IText> = ({ size = TextSize.Small, color = "#000000", weight = TextWeight.Normal, children, numberOfLines, testID = "" }) => (
+  <StyledText testID={testID} size={size} color={color} weight={weight} ellipsizeMode="tail" {...(numberOfLines && { numberOfLines })}>{children}</StyledText>
 );
