@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import { Album, Loading } from "../../components";
+import { Error } from "../../components";
 import { Container, Space } from "./styles";
 import { getAlbums, IAlbum } from "../../api";
 
@@ -31,6 +32,9 @@ export const Albums = (): JSX.Element => {
   useEffect(() => {
     getAlbumsData();
   }, []);
+  if (isError) {
+    return <Error />;
+  };
   return (
     <Container>
       {

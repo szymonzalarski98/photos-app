@@ -19,6 +19,7 @@ export const TabBar: FunctionComponent<ITabBar> = ({ navigation: { navigate }, s
     <Container>
       <Label onPress={() => navigate("News")}>
         <Text
+          testID="tab-bar-news"
           color={index === 0 ? SELECTED_TEXT_COLOR : TEXT_COLOR}
           weight={index === 0 ? TextWeight.Bold : TextWeight.Normal}
         >
@@ -29,6 +30,7 @@ export const TabBar: FunctionComponent<ITabBar> = ({ navigation: { navigate }, s
       <Separator />
       <Label onPress={() => navigate("Albums")}>
         <Text
+          testID="tab-bar-albums"
           color={index === 1 ? SELECTED_TEXT_COLOR : TEXT_COLOR}
           weight={index === 1 ? TextWeight.Bold : TextWeight.Normal}
         >

@@ -5,7 +5,6 @@ export const Container = styled.View`
   flex-direction: column;
   justify-content: space-between;
   aspect-ratio: 1;
-  background-color: red;
   box-shadow: 0px 8px 20px rgba(240, 242, 245, 0.5);
   border-radius: 8px;
   margin-bottom: 8px;

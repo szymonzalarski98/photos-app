@@ -2,9 +2,10 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { Container, Space, Wrapper } from "./styles";
 import { Text, TextSize, TextWeight } from "../Text";
 import { Input } from "../../components"
-import { Button } from "../Button";
+import { Button } from "../../components";
 import { Comment } from "../../components";
-import { Loading } from "../Loading";
+import { Loading } from "../../components";
+import { Error } from "../../components";
 import { getComments, IComment } from "../../api";
 
 interface IDetailsCard {
@@ -44,6 +45,9 @@ export const DetailsCard: FunctionComponent<IDetailsCard> = ({ id, title, descri
   useEffect(() => {
     getCommentsData(id);
   }, []);
+  if (isError) {
+    return <Error />;
+  };
   return (
     <Wrapper key={id}>
       <Container>

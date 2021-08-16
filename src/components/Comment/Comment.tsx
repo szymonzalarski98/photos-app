@@ -11,7 +11,7 @@ interface IComment {
 
 export const Comment: FunctionComponent<IComment> = ({ id, name, body }) => {
   return (
-    <Container key={id}>
+    <Container key={id} testID={id.toString()}>
       <Text color="#001524">{name}</Text>
       <Space height={4} />
       <Text color="#182F40" weight={TextWeight.Thin}>{body}</Text>

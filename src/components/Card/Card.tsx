@@ -17,13 +17,13 @@ export const Card: FunctionComponent<ICard> = ({ id, title, description, redirec
   const formattedTitle = capitalizeFirstLetter(title);
   const formattedDescription = capitalizeFirstLetter(description);
   return (
-    <Container key={id}>
+    <Container testID="card" key={id}>
       <Content>
-        <Text>{formattedTitle}</Text>
+        <Text testID="card-title">{formattedTitle}</Text>
         <Space />
-        <Text color="#A0ABB2">{formattedDescription}</Text>
+        <Text testID="card-desc" color="#A0ABB2">{formattedDescription}</Text>
       </Content>
-      <ButtonContainer onPress={handleRedirectToDetails}>
+      <ButtonContainer testID="card-button" onPress={handleRedirectToDetails}>
         <CardArrowIcon />
       </ButtonContainer>
     </Container>

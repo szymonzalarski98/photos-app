@@ -12,6 +12,7 @@ export const Input: FunctionComponent<IInput> = ({ value, onChange }) => {
   return (
     <Container>
       <TextInput
+        testID="input"
         placeholder="Here you can add your comment..."
         placeholderTextColor="#586976"
         style={{ fontWeight: TextWeight.Normal }}
